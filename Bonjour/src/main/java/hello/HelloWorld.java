@@ -2,10 +2,14 @@ package hello;
 
 public class HelloWorld {
     public static void main(String[] args) {
-      Animal human = new Human(); 
+      Animal human = new Human(" Green"); 
       Animal dog = new Dog();
-      System.out.println(human.sayHello());
+      System.out.println(human.sayHello()+ human.color);
+      System.out.println("de " + human.city());
+      System.out.println(human.sayGoodbye());
       System.out.println(dog.sayHello());
+      System.out.println("&"+ dog.sayGoodbye());
+      System.out.println("From "+ dog.city());
     }
   
 }
