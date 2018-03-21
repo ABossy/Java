@@ -1,24 +1,26 @@
 package hello;
+
 import java.util.Scanner;
 
 public class Guerrier extends Personnage {
 
     //  ARME
-    private String Arme;
+    private Arme arme;
 
-    public String arme() {
-        return this.Arme;
+    public void SetArme(Arme arme) {
+        this.arme = arme;
     }
 
-    public void SetArme(String arme) {
-        this.Arme = arme;
+    public Arme getArme() {
+        return this.arme;
     }
 
     public String toString() {
-        return super.toString() + "\n son Arme: " + this.Arme;
+        return super.toString() + "\n son Arme: " + this.getArme().name + "\n niveau de force: " + this.getArme().force;
 
     }
-    public void modif(){
+
+    public void modif() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez un nouveau nom pour votre Guerrier");
         String name = sc.nextLine();
@@ -31,7 +33,10 @@ public class Guerrier extends Personnage {
         sc.nextLine();
         this.SetForce(force);
         System.out.println("Choisissez une nouvelle arme pour votre Guerrier");
-        String arme = sc.nextLine();
+        String armename = sc.nextLine();
+        System.out.println("Niveau de force");
+        int attaque = sc.nextInt();
+        Arme arme = new Arme(armename, attaque);
         this.SetArme(arme);
     }
 
