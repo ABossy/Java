@@ -8,7 +8,6 @@ public class Game {
         String sortie = "";
         Personnage pers[] = new Personnage[10];
         int nb = 0;
-
         //  do/while permet d'avoir un Menu de selection 
         do {
             Scanner sc = new Scanner(System.in);
@@ -61,26 +60,21 @@ public class Game {
     private static Guerrier creaGuerrier() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vous avez choisi un Guerrier ");
-        Guerrier newGuerrier = new Guerrier();
         System.out.println("Choisissez un nom pour votre guerrier");
         String name = sc.nextLine();
-        newGuerrier.SetName(name);
-
         System.out.println("Veuillez saisir le nombre de vie (1-10):");
         int vie = sc.nextInt();
-        newGuerrier.SetVie(vie);
-
         System.out.println("Veuillez saisir la force (0-100):");
         int force = sc.nextInt();
         sc.nextLine();
-        newGuerrier.SetForce(force);
-
         System.out.println("Choisissez une arme");
         String armename = sc.nextLine();
-        System.out.println("Niveau du Sort");
+
+        System.out.println("Niveau de l'arme (0-100):");
         int attaque = sc.nextInt();
         Arme arme = new Arme(armename, attaque);
-        newGuerrier.SetArme(arme);
+
+        Guerrier newGuerrier = new Guerrier(name, vie, force, arme);
 
         System.out.println("Souhaitez vous afficher votre personnage? 1.Yes/2.No");
         String affiche = sc.next();
@@ -97,25 +91,20 @@ public class Game {
     private static Magicien creaMagicien() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vous avez choisi un Magicien");
-        Magicien newMagicien = new Magicien();
         System.out.println("Choisissez un nom pour votre Magicien");
         String name = sc.nextLine();
-        newMagicien.SetName(name);
         System.out.println("Veuillez saisir le nombre de vie (1-10):");
         int vie = sc.nextInt();
-
-        newMagicien.SetVie(vie);
         System.out.println("Veuillez saisir la force (0-100):");
         int force = sc.nextInt();
         sc.nextLine();
-
-        newMagicien.SetForce(force);
         System.out.println("Choisissez un Sort");
         String sortname = sc.nextLine();
-        System.out.println("Niveau du Sort");
+        System.out.println("Niveau du Sort (0-100):");
         int attaque = sc.nextInt();
         Sort sort = new Sort(sortname, attaque);
-        newMagicien.SetSort(sort);
+
+        Magicien newMagicien = new Magicien(name, vie, force, sort);
 
         System.out.println("Souhaitez vous afficher votre personnage? 1.Yes/2.No");
         String affiche = sc.next();
@@ -141,8 +130,3 @@ public class Game {
 // {
 //     System.out.println("invalid number");
 // }
-
-// instance de la classe magicien qui correspond au constructeur.
-// Magicien m = new Magicien("Vic", 122, 34);
-// pers[nb] = m;
-// nb++;

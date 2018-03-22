@@ -16,7 +16,7 @@ public class Magicien extends Personnage {
     }
 
     public String toString() {
-        return super.toString() + "\n son Sort: " + sort.name + "\n niveau du sort: " + sort.niveau;
+        return super.toString() + "\n son Sort: " + this.getSort().name + "\n niveau du sort: " + this.getSort().niveau;
 
     }
 
@@ -34,16 +34,16 @@ public class Magicien extends Personnage {
         this.SetForce(force);
         System.out.println("Choisissez un nouveau Sort pour votre Magicien");
         String sortname = sc.nextLine();
-        System.out.println("Niveau du Sort");
+        System.out.println("Niveau du Sort (0-100)");
         int attaque = sc.nextInt();
         Sort sort = new Sort(sortname, attaque);
         this.SetSort(sort);
     }
 
     //constructeurs
-    public Magicien(String nom, int vie, int force) {
+    public Magicien(String nom, int vie, int force, Sort sort) {
         super(nom, vie, force);
-        // this.sort = s;
+        this.sort = sort;
     }
 
     public Magicien() {

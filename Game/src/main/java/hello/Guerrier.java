@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Guerrier extends Personnage {
 
-    //  ARME
     private Arme arme;
 
     public void SetArme(Arme arme) {
@@ -16,7 +15,8 @@ public class Guerrier extends Personnage {
     }
 
     public String toString() {
-        return super.toString() + "\n son Arme: " + this.getArme().name + "\n niveau de force: " + this.getArme().force;
+        return super.toString() + "\n son Arme: " + this.getArme().name + "\n niveau de l'arme: "
+                + this.getArme().force;
 
     }
 
@@ -34,10 +34,19 @@ public class Guerrier extends Personnage {
         this.SetForce(force);
         System.out.println("Choisissez une nouvelle arme pour votre Guerrier");
         String armename = sc.nextLine();
-        System.out.println("Niveau de force");
+        System.out.println("Niveau de L'arme (0-100)");
         int attaque = sc.nextInt();
         Arme arme = new Arme(armename, attaque);
         this.SetArme(arme);
     }
 
+    //constructeurs
+    public Guerrier(String nom, int vie, int force, Arme arme) {
+        super(nom, vie, force);
+        this.arme = arme;
+    }
+
+    public Guerrier() {
+        super();
+    }
 }
