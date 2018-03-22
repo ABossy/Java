@@ -1,22 +1,17 @@
 package hello;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Magicien extends Personnage {
+    ArrayList<Sort> sort = new ArrayList<Sort>();
 
-    //  SORT
-    private Sort sort;
-
-    public void SetSort(Sort sort) {
-        this.sort = sort;
-    }
-
-    public Sort getSort() {
-        return this.sort;
+    public ArrayList<Sort> getSort() {
+        return sort;
     }
 
     public String toString() {
-        return super.toString() + "\n son Sort: " + this.getSort().name + "\n niveau du sort: " + this.getSort().niveau;
+        return super.toString() + sort.toString();
 
     }
 
@@ -37,11 +32,11 @@ public class Magicien extends Personnage {
         System.out.println("Niveau du Sort (0-100)");
         int attaque = sc.nextInt();
         Sort sort = new Sort(sortname, attaque);
-        this.SetSort(sort);
+        // this.SetSort(sort);
     }
 
     //constructeurs
-    public Magicien(String nom, int vie, int force, Sort sort) {
+    public Magicien(String nom, int vie, int force, ArrayList<Sort> sort) {
         super(nom, vie, force);
         this.sort = sort;
     }

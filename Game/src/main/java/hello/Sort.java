@@ -10,5 +10,9 @@ public class Sort {
 
     }
 
+    public String toString() {
+        return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.niveau;
+
+    }
 }
 //Création class Sort avec 2 attributs name et niveau.

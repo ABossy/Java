@@ -9,5 +9,9 @@ public class Arme {
         this.force = attaque;
     }
 
+    public String toString() {
+        return "\n son Arme: " + this.name + "\n niveau de l'arme: " + this.force;
+
+    }
 }
 //Création class Arme avec 2 attributs name et force.

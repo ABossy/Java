@@ -1,23 +1,17 @@
 package hello;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Guerrier extends Personnage {
+    ArrayList<Arme> arme = new ArrayList<Arme>();
 
-    private Arme arme;
-
-    public void SetArme(Arme arme) {
-        this.arme = arme;
-    }
-
-    public Arme getArme() {
-        return this.arme;
+    public ArrayList<Arme> getArme() {
+        return arme;
     }
 
     public String toString() {
-        return super.toString() + "\n son Arme: " + this.getArme().name + "\n niveau de l'arme: "
-                + this.getArme().force;
-
+        return super.toString() + arme.toString();
     }
 
     public void modif() {
@@ -37,11 +31,11 @@ public class Guerrier extends Personnage {
         System.out.println("Niveau de L'arme (0-100)");
         int attaque = sc.nextInt();
         Arme arme = new Arme(armename, attaque);
-        this.SetArme(arme);
+        // this.SetArme(arme);
     }
 
     //constructeurs
-    public Guerrier(String nom, int vie, int force, Arme arme) {
+    public Guerrier(String nom, int vie, int force, ArrayList<Arme> arme) {
         super(nom, vie, force);
         this.arme = arme;
     }
