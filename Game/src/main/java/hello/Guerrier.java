@@ -31,7 +31,8 @@ public class Guerrier extends Personnage {
         System.out.println("Niveau de L'arme (0-100)");
         int attaque = sc.nextInt();
         Arme arme = new Arme(armename, attaque);
-        // this.SetArme(arme);
+        this.arme.set(0, arme);
+
     }
 
     //constructeurs

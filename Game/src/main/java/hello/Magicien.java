@@ -32,7 +32,8 @@ public class Magicien extends Personnage {
         System.out.println("Niveau du Sort (0-100)");
         int attaque = sc.nextInt();
         Sort sort = new Sort(sortname, attaque);
-        // this.SetSort(sort);
+        this.sort.set(0, sort);
+
     }
 
     //constructeurs

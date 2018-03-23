@@ -15,7 +15,7 @@ public class Game {
         do {
             Scanner sc = new Scanner(System.in);
             System.out.println(
-                    "Créer un perso (1) " + "Afficher liste des personnages (2) " + "Modifier un personnage (3) ");
+                    "Créer un perso (1) " + "Afficher liste des personnages (2) " + "Modifier un personnage (3)");
             int saisie = sc.nextInt();
             if (saisie == 1) {
                 System.out.println("Choisissez un Guerrier(1) ou un Magicien(2)");
@@ -58,6 +58,7 @@ public class Game {
                 }
                 int choix = sc.nextInt();
                 pers[choix].modif();
+
                 /**
                  * permet de stocker les modifs dans le tableau pers[]
                  */
@@ -71,9 +72,9 @@ public class Game {
             System.out.println("\n Voulez vous quitter le programme? y/n");
             sortie = sc.next();
         } while (!sortie.equals("y"));
-        /**
-         *  while de sortie qui execute la sortie du programme. 
-         */
+
+        //while de sortie qui execute la sortie du programme. 
+
     }
 
     // FONCTION GUERRIER
@@ -103,12 +104,28 @@ public class Game {
                 System.out.println(arme.get(i).name);
             }
         } while (morearme.equals("1"));
-        {
+
+        System.out.println("souhaitez vous supprimer une armes?:y/n");
+        String removearme = sc.nextLine();
+        if (removearme.equals("y")) {
+            ;
+            System.out.println("Quelle arme souhaitez vous supprimer ?: 1/2/3");
+            int remoarme = sc.nextInt();
+            if (remoarme == 1) {
+                arme.remove(0);
+            } else if (remoarme == 2) {
+                arme.remove(1);
+            } else if (remoarme == 3) {
+                arme.remove(2);
+
+            }
+
         }
+
         /**
-         * do/while condition qui me permet d'executer le contenu du "do" ici création d'une arme
-         * tant que la saisie utilisateur est egal à 1 .
-         */
+        * do/while condition qui me permet d'executer le contenu du "do" ici création d'une arme
+        * tant que la saisie utilisateur est egal à 1 .
+        */
 
         Guerrier newGuerrier = new Guerrier(name, vie, force, arme);
         /**
@@ -119,12 +136,12 @@ public class Game {
         if (affiche.equals("1")) {
             System.out.println("Voici votre Personnage: \n" + " ** Guerrier **" + newGuerrier.toString());
         } else if (affiche.equals("2")) {
-            /**
-            *  condition qui permet d'afficher les infos definit dans ma fonction toString()
-            *  return les données name, vie, force + sort ou arme en fonction de la nature du perso.
-            */
+
         }
-        return newGuerrier;
+        return newGuerrier;/**
+                           *  condition qui permet d'afficher les infos definit dans ma fonction toString()
+                           *  return les données name, vie, force + sort ou arme en fonction de la nature du perso.
+                           */
 
     };
 
@@ -158,6 +175,21 @@ public class Game {
         } while (moresort.equals("1"));
         {
 
+        }
+        System.out.println("souhaitez vous supprimer un sort?:Y/N");
+        String removesort = sc.nextLine();
+        if (removesort.equals("Y")) {
+            ;
+            System.out.println("Quelle sort souhaitez vous supprimer ?: 1/2/3");
+            int remosort = sc.nextInt();
+            if (remosort == 1) {
+                sort.remove(0);
+            } else if (remosort == 2) {
+                sort.remove(1);
+            } else if (remosort == 3) {
+                sort.remove(2);
+
+            }
         }
         Magicien newMagicien = new Magicien(name, vie, force, sort);
 
